@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from '../../../axios';
-import { Link } from 'react-router-dom';
 
 import Post from '../../../components/Post/Post';
 import './Posts.css';
@@ -34,10 +33,10 @@ class Posts extends Component {
       });
   }
 
+  // 2 variant programmatically
   postSelectedHandler = (id) => {
-    this.setState({
-      selectedPostId: id
-    });
+    this.props.history.push({pathname: '/' + id}); // 2.1
+    // this.props.history.push('/' + id); // 2.2
   }
 
   render() {
@@ -46,13 +45,15 @@ class Posts extends Component {
     if (!this.state.error) {
       posts = this.state.posts.map(post => {
         return (
-          <Link to={'/' + post.id} key={post.id}>
+          // 1 variant with <Link>
+          // <Link to={'/' + post.id} key={post.id}>
             <Post 
+              key={post.id}
               title={post.title} 
               author={post.author}
               clicked={ () => this.postSelectedHandler(post.id) }
             />
-          </Link>
+          // </Link>
         );
       });
     }
