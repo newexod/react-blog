@@ -10,6 +10,7 @@ class Posts extends Component {
   };
 
   componentDidMount () {
+    console.log('Posts', this.props); // routing props of route localhost:3000/
     axios.get('/posts')
       .then(response => {
         const posts = response.data.slice(0, 4);

@@ -10,6 +10,10 @@ class NewPost extends Component {
     author: 'Dima'
   }
 
+  componentDidMount() {
+    console.log('NewPost', this.props); // routing props of route localhost:3000/new-post
+  }
+
   postDataHandler = () => {
     const data = {
       title: this.state.title,
