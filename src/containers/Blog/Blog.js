@@ -49,8 +49,11 @@ class Blog extends Component {
         <Switch>
           {this.state.auth ? <Route path="/new-post" component={NewPost} /> : null}
           <Route path="/posts" component={Posts} />
+          {/* 404 не работает вместе с <Redirect from="/"> */}
+          <Route render={() => <h1>404 Not Found</h1>} />
+
           {/* 1 вариант: лучше */}
-          <Redirect from="/" to="/posts" />
+          {/* <Redirect from="/" to="/posts" /> */}
           {/* 2 вариант: хуже */}
           {/* <Route path="/" component={Posts} /> */}
         </Switch>
