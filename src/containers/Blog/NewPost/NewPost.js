@@ -13,6 +13,7 @@ class NewPost extends Component {
   }
 
   componentDidMount() {
+    // If unauth => this.props.history.replace('/posts');
     console.log('NewPost', this.props); // routing props of route localhost:3000/new-post
   }
 
