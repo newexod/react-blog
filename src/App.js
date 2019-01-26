@@ -20,18 +20,18 @@ class App extends Component {
   render() {
     return (
       // 2 вариант
-      <React.Fragment>
-        <button onClick={this.modeHandler}>Toggle Mode</button>
-        {this.state.showPosts ? 
-          (
-            <Suspense fallback={<div>Loading...</div>}>
-              <Posts/>
-            </Suspense>
-          ) : (
-            <User />
-          )
-        }
-      </React.Fragment>
+      // <React.Fragment>
+      //   <button onClick={this.modeHandler}>Toggle Mode</button>
+      //   {this.state.showPosts ? 
+      //     (
+      //       <Suspense fallback={<div>Loading...</div>}>
+      //         <Posts/>
+      //       </Suspense>
+      //     ) : (
+      //       <User />
+      //     )
+      //   }
+      // </React.Fragment>
 
       // 1 вариант
       // <BrowserRouter>
@@ -53,11 +53,12 @@ class App extends Component {
       //   </React.Fragment>
       // </BrowserRouter>
 
-      // <BrowserRouter>
-      //   <div className="App">
-      //     <Blog />
-      //   </div>
-      // </BrowserRouter>
+      // <BrowserRouter basename="/my-app">
+      <BrowserRouter>
+        <div className="App">
+          <Blog />
+        </div>
+      </BrowserRouter>
     );
   }
 }
