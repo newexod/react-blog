@@ -21,10 +21,10 @@ class Blog extends Component {
         {/* 
           localhost:3000/ - будет выведено оба <h1> 
           localhost:3000/new-post - будет выведен второй <h1> 
+          <Route path="/" exact render={() => <h1>Home</h1>} />
+          <Route path="/" render={() => <h1>Home 2</h1>} />
         */}
-        <Route path="/" exact render={() => <h1>Home</h1>} />
-        <Route path="/" render={() => <h1>Home 2</h1>} />
-        {/* <Posts /> */}
+        <Route path="/" exact component={Posts} />
       </div>
     );
   }
